@@ -12,7 +12,6 @@ export default function initTabNav() {
 
   if (tabMenu.length && tabContent.length) {
     tabContent[0].classList.add('ativo');
-
     tabMenu.forEach((itemMenu, index) => {
       itemMenu.addEventListener('click', () => {
         activeTab(index);

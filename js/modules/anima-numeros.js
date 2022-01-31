@@ -4,14 +4,11 @@ export default function initAnimaNumeros() {
 
     numeros.forEach((numero) => {
       const total = +numero.innerText;
-      const incremento = Math.floor(total / 100);
-
+      const inscremento = Math.floor(total / 100);
       let start = 0;
-
       const timer = setInterval(() => {
-        start += incremento;
+        start += inscremento;
         numero.innerText = start;
-
         if (start > total) {
           numero.innerText = total;
           clearInterval(timer);
@@ -27,9 +24,8 @@ export default function initAnimaNumeros() {
       animaNumeros();
     }
   }
-
   observer = new MutationObserver(handleMutation);
-  const observerTarget = document.querySelector('.numeros');
 
+  const observerTarget = document.querySelector('.numeros');
   observer.observe(observerTarget, { attributes: true });
 }

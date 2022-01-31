@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/extensions
-import outsideClick from './outside-click.js';
+import outsideClick from './outsideclick.js';
 
 export default function initDropdownMenu() {
   const dropdownMenus = document.querySelectorAll('[data-dropdown]');
@@ -17,12 +16,4 @@ export default function initDropdownMenu() {
       menu.addEventListener(userEvent, handleClick);
     });
   });
-  // touchstart é o 'click' do mobile
 }
-
-// o que é Event Bubble:
-// momento de hosting -> todas as variáveis vão para a memória
-// fase de execução do script -> atualiza as variáveis
-// fase de bubble -> faz uma verificação em todos os elementos pai que
-// iniciaram o evento
-// window > document > html > body > outros

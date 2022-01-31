@@ -13,18 +13,14 @@ export default function initFetchAnimais() {
       const animaisResponse = await fetch(url);
       const animaisJSON = await animaisResponse.json();
       const numerosGrid = document.querySelector('.numeros-grid');
-
       animaisJSON.forEach((animal) => {
         const divAnimal = createAnimal(animal);
         numerosGrid.appendChild(divAnimal);
       });
-
       initAnimaNumeros();
     } catch (erro) {
-      // eslint-disable-next-line no-console
       console.log(erro);
     }
-    initAnimaNumeros();
   }
 
   fetchAnimais('./animaisapi.json');
