@@ -38,17 +38,13 @@ export class Slide {
   }
 
   onMove(event) {
-    // eslint-disable-next-line operator-linebreak
-    const pointerPosition =
-      event.type === 'mousemove'
-        ? event.clientX
-        : event.changedTouches[0].clientX;
+    const pointerPosition = (event.type === 'mousemove') ? event.clientX : event.changedTouches[0].clientX;
     const finalPosition = this.updatePosition(pointerPosition);
     this.moveSlide(finalPosition);
   }
 
   onEnd(event) {
-    const movetype = event.type === 'mouseup' ? 'mousemove' : 'touchmove';
+    const movetype = (event.type === 'mouseup') ? 'mousemove' : 'touchmove';
     this.wrapper.removeEventListener(movetype, this.onMove);
     this.dist.finalPosition = this.dist.movePosition;
     this.transition(true);
@@ -171,9 +167,7 @@ export default class SlideNav extends Slide {
     const control = document.createElement('ul');
     control.dataset.control = 'slide';
     this.slideArray.forEach((item, index) => {
-      control.innerHTML += `<li><a href="#slide${index + 1}">${
-        index + 1
-      }</a></li>`;
+      control.innerHTML += `<li><a href="#slide${index + 1}">${index + 1}</a></li>`;
     });
     this.wrapper.appendChild(control);
     return control;
